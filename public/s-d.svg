@@ -1,17 +1,50 @@
-<svg width="150" height="93" viewBox="0 0 150 93" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M76.7244 5.91211H48.4863V27.2519H76.7244V5.91211Z" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M104.928 27.3091H48.4863V48.6489H104.928V27.3091Z" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M104.928 48.6489H48.4863V69.9887H104.928V48.6489Z" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M104.928 69.9888H48.4863V91.3286H104.928V69.9888Z" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M129.457 69.8081H136.908" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M129.457 91.3027H136.908" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M133.16 69.8081L133.16 91.1067" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M48.4863 48.6489L104.962 27.3091" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M104.962 48.6489L48.5195 27.3091" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M48.4863 69.9887L104.962 48.6489" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M104.962 69.9887L48.5195 48.6489" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M48.4863 91.3029L104.962 69.9888" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M104.962 91.3029L48.5195 69.9888" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M42.5602 31.59C42.5602 33.1269 41.3115 34.3436 39.8066 34.3436H30.9054C30.0409 34.3436 29.3685 35.016 29.3685 35.8805C29.3685 36.745 30.0409 37.4174 30.9054 37.4174H32.3143C33.8512 37.4174 35.0679 38.6341 35.0679 40.171C35.0679 41.7079 33.8512 42.9246 32.3143 42.9246H3.75361C2.24873 42.9246 1 41.6759 1 40.171C1 38.6662 2.24873 37.4174 3.75361 37.4174H13.3912C14.2557 37.4174 14.9281 36.745 14.9281 35.8805C14.9281 35.016 14.2557 34.3436 13.3912 34.3436H11.246C9.70908 34.3436 8.49237 33.1269 8.49237 31.59C8.49237 30.0531 9.70908 28.8364 11.246 28.8364H39.7746C41.2795 28.8364 42.5282 30.0852 42.5282 31.59H42.5602Z" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
-<path d="M148.025 3.75361C148.025 5.2905 146.776 6.50721 145.271 6.50721H136.114C135.249 6.50721 134.577 7.1796 134.577 8.04411C134.577 8.90861 135.249 9.581 136.114 9.581H137.779C139.316 9.581 140.532 10.7977 140.532 12.3346C140.532 13.8715 139.316 15.0882 137.779 15.0882H98.2038C96.6989 15.0882 95.4502 13.8395 95.4502 12.3346C95.4502 10.8297 96.6989 9.581 98.2038 9.581H113.957C114.821 9.581 115.494 8.90861 115.494 8.04411C115.494 7.1796 114.821 6.50721 113.957 6.50721H108.002C106.465 6.50721 105.248 5.2905 105.248 3.75361C105.248 2.21671 106.465 1 108.002 1H145.271C146.776 1 148.025 2.24873 148.025 3.75361Z" stroke="#B8B8B8" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
+<svg width="400" height="400" viewBox="0 0 400 400"
+     xmlns="http://www.w3.org/2000/svg">
+
+  <!-- 데크 (하부 수평) -->
+  <line x1="40" y1="260" x2="360" y2="260"
+        stroke="#111" stroke-width="10"
+        stroke-linecap="round"/>
+
+  <!-- 상부 아치 라인 (삼각형으로 구성) -->
+  <g stroke="#111" stroke-width="10" fill="none"
+     stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="
+      40,260
+      80,190
+      120,220
+      160,240
+      200,245
+      240,240
+      280,220
+      320,190
+      360,260
+    "/>
+  </g>
+
+  <!-- 삼각형 트러스 -->
+  <g stroke="#111" stroke-width="6" fill="none">
+    <polyline points="40,260 80,190 120,260"/>
+    <polyline points="120,260 160,240 200,260"/>
+    <polyline points="200,260 240,240 280,260"/>
+    <polyline points="280,260 320,190 360,260"/>
+  </g>
+
+  <!-- 수직 지지대 -->
+  <g stroke="#111" stroke-width="6" stroke-linecap="round">
+    <line x1="80"  y1="190" x2="80"  y2="260"/>
+    <line x1="120" y1="220" x2="120" y2="260"/>
+    <line x1="160" y1="240" x2="160" y2="260"/>
+    <line x1="200" y1="245" x2="200" y2="260"/>
+    <line x1="240" y1="240" x2="240" y2="260"/>
+    <line x1="280" y1="220" x2="280" y2="260"/>
+    <line x1="320" y1="190" x2="320" y2="260"/>
+  </g>
+
+  <!-- 교각 -->
+  <g stroke="#111" stroke-width="10" stroke-linecap="round">
+    <line x1="80"  y1="260" x2="80"  y2="340"/>
+    <line x1="320" y1="260" x2="320" y2="340"/>
+  </g>
+
 </svg>
