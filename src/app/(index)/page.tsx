@@ -1,15 +1,5 @@
 "use client";
 
-import Image from "next/image";
-import Logo from "@/components/logo";
-import MoreBtn from "@/components/moreBtn";
-import DropDownMenu from "@/components/dropDownMenu";
-import HeaderTitle from "@/components/headerTitle";
-import SDLogo from "@/components/SDLogo";
-import MOWRLogo from "@/components/MOWRLogo";
-import { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
