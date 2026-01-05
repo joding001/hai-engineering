@@ -1,52 +1,31 @@
+import Link from 'next/link'
 import React from 'react'
 
 const DropDownMenu = () => {
   return (
-    <div className="absolute top-full left-0 w-full bg-white
-        border-b border-gray-200
-        opacity-0 invisible
-        transition-all duration-200
-        group-hover:opacity-100 group-hover:visible z-40">
-
-        <div className="mx-auto max-w-6xl flex">
-        {/* 왼쪽 여백 */}
-        <div className="flex-2" />
-
-        {/* 회사소개 */}
-        <div className="flex-1 py-6 border-r border-gray-200 text-center">
-            <ul className="space-y-3">
-            <li className="hover:text-blue-500 cursor-pointer">인사말</li>
-            <li className="hover:text-blue-500 cursor-pointer">오시는길</li>
-            </ul>
-        </div>
-
-        {/* 사업분야 */}
-        <div className="flex-1 py-6 border-r border-gray-200 text-center">
-            <ul className="space-y-3">
-            <li className="hover:text-blue-500 cursor-pointer">수자원부</li>
-            <li className="hover:text-blue-500 cursor-pointer">구조부</li>
-            </ul>
-        </div>
-
-        {/* 홍보센터 */}
-        <div className="flex-1 py-6 border-r border-gray-200 text-center">
-            <ul className="space-y-3">
-            <li className="hover:text-blue-500 cursor-pointer">뉴스</li>
-            </ul>
-        </div>
-
-        {/* 고객지원 */}
-        <div className="flex-1 py-6 text-center">
-            <ul className="space-y-3">
-            <li className="hover:text-blue-500 cursor-pointer">Q&A</li>
-            <li className="hover:text-blue-500 cursor-pointer">인재채용</li>
-            </ul>
-        </div>
-
-        {/* 오른쪽 여백 */}
-        <div className="flex-2" />
-        </div>
-    </div>
+    <>
+      <div className="absolute left-1/2 -translate-x-1/2 w-[580px] h-[100px] self-start hover:h-[210px] overflow-hidden transition-[height] duration-500">
+        <ul className="w-full h-[100px] flex">
+          <li className="w-[25%] cursor-pointer hover:text-blue-500 transition-colors duration-300 flex items-center justify-center"><Link href="#">회사소개</Link></li>
+          <li className="w-[25%] cursor-pointer hover:text-blue-500 transition-colors duration-300 flex items-center justify-center"><Link href="#">사업분야</Link></li>
+          <li className="w-[25%] cursor-pointer hover:text-blue-500 transition-colors duration-300 flex items-center justify-center"><Link href="#">홍보센터</Link></li>
+          <li className="w-[25%] cursor-pointer hover:text-blue-500 transition-colors duration-300 flex items-center justify-center"><Link href="#">고객지원</Link></li>
+        </ul>
+        <ul className="w-full h-[55px] flex">
+          <li className="w-[25%] flex items-center justify-center"><Link href="#">인사말</Link></li>
+          <li className="w-[25%] flex items-center justify-center"><Link href="#">수자원부</Link></li>
+          <li className="w-[25%] flex items-center justify-center"><Link href="#">뉴스</Link></li>
+          <li className="w-[25%] flex items-center justify-center"><Link href="#">Q&A</Link></li>
+        </ul>
+        <ul className="w-full h-[55px] flex">
+          <li className="w-[25%] flex items-center justify-center"><Link href="#">오시는길</Link></li>
+          <li className="w-[25%] flex items-center justify-center"><Link href="#">구조부</Link></li>
+          <li className="w-[25%] flex items-center justify-center"/>
+          <li className="w-[25%] flex items-center justify-center"><Link href="#">인재채용</Link></li>
+        </ul>
+      </div>
+      <div className="w-full"></div>
+    </>
   )
 }
 
