@@ -23,6 +23,9 @@ export default function Home() {
 
       {/******* 사업분야 ******/}
       <Business></Business>
+
+      {/******* 뉴스 ******/}
+      
     </>
   );
 }
