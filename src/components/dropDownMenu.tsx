@@ -29,8 +29,8 @@ const DropDownMenu = () => {
 
   return (
     <ul className="peer group absolute left-1/2 -translate-x-1/2
-      w-[432px] h-[100px] self-start
-      hover:h-[210px] hover:w-[580px]
+      w-108 h-25 self-start
+      hover:h-52.5 hover:w-145
       overflow-y-hidden overflow-x-visible transition-[height, width] duration-500
       flex">
       {/* 전체 hover 시 하얀 배경 */}
@@ -38,13 +38,13 @@ const DropDownMenu = () => {
       {menuItems.map((item, index) => (
         <li
           key={index}
-          className="w-[25%] h-[100%]"
+          className="w-[25%] h-full"
           onMouseEnter={() => setActiveIndex(index)}
           onMouseLeave={() => setActiveIndex(null)}
         >
           <ul>
             <li className={`
-                  w-[100%] h-[100px] flex justify-center items-center transition-[color] duration-200 border-transparent border-t-4 border-b-4 
+                  w-full h-25 flex justify-center items-center transition-[color] duration-200 border-transparent border-t-4 border-b-4 
                     ${
                       activeIndex === index
                         ? "border-b-sky-400 text-sky-400"
@@ -54,9 +54,9 @@ const DropDownMenu = () => {
               <Link href={item.href}>{item.title}</Link>
             </li>
             {/* 서브 메뉴 */}
-            <ul className="py-[20px]">
+            <ul className="py-5">
               {item.sub.map((sub, subIdx) => (
-                <li key={subIdx} className="py-[8px] flex justify-center items-center">
+                <li key={subIdx} className="py-2 flex justify-center items-center">
                   {sub}
                 </li>
               ))}
