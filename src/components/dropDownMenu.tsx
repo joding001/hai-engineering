@@ -1,32 +1,71 @@
-import Link from 'next/link'
-import React from 'react'
+import Link from "next/link";
+import React, { useState } from "react";
 
 const DropDownMenu = () => {
-  return (
-    <>
-      <div className="group absolute left-1/2 -translate-x-1/2 w-[432px] h-[100px] self-start hover:h-[210px] hover:w-[580px] overflow-y-hidden overflow-x-visible transition-[height, w] duration-500">
-        <div className="absolute left-1/2 -translate-x-1/2 top-[100px] w-[100vw] h-0 bg-white group-hover:h-[110px] -z-20 transition-[height] duration-500" />
-        <ul className="absolute left-1/2 -translate-x-1/2 top-0 w-[432px] h-[100px] group-hover:w-[580px] transition-[w] duration-500 flex">
-          <li className="w-[25%] cursor-pointer hover:text-blue-500 transition-colors duration-300 flex items-center justify-center"><Link href="#">회사소개</Link></li>
-          <li className="w-[25%] cursor-pointer hover:text-blue-500 transition-colors duration-300 flex items-center justify-center"><Link href="#">사업분야</Link></li>
-          <li className="w-[25%] cursor-pointer hover:text-blue-500 transition-colors duration-300 flex items-center justify-center"><Link href="#">홍보센터</Link></li>
-          <li className="w-[25%] cursor-pointer hover:text-blue-500 transition-colors duration-300 flex items-center justify-center"><Link href="#">고객지원</Link></li>
-        </ul>
-        <ul className="absolute left-1/2 -translate-x-1/2 top-[100px] w-[432px] h-[55px] group-hover:w-[580px] transition-[w] duration-500 flex">
-          <li className="w-[25%] flex items-center justify-center"><Link href="#">인사말</Link></li>
-          <li className="w-[25%] flex items-center justify-center"><Link href="#">수자원부</Link></li>
-          <li className="w-[25%] flex items-center justify-center"><Link href="#">뉴스</Link></li>
-          <li className="w-[25%] flex items-center justify-center"><Link href="#">Q&A</Link></li>
-        </ul>
-        <ul className="absolute left-1/2 -translate-x-1/2 top-[155px] w-[432px] h-[55px] group-hover:w-[580px] transition-[w] duration-500 flex">
-          <li className="w-[25%] flex items-center justify-center"><Link href="#">오시는길</Link></li>
-          <li className="w-[25%] flex items-center justify-center"><Link href="#">구조부</Link></li>
-          <li className="w-[25%] flex items-center justify-center"/>
-          <li className="w-[25%] flex items-center justify-center"><Link href="#">인재채용</Link></li>
-        </ul>
-      </div>
-    </>
-  )
-}
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-export default DropDownMenu
+  const menuItems : { title: string; sub: string[]; href: string }[] = [
+    {
+      title: "회사소개",
+      sub: ["인사말", "오시는길"],
+      href: "#",
+    },
+    {
+      title: "사업분야",
+      sub: ["수자원부", "구조부"],
+      href: "#",
+    },
+    {
+      title: "홍보센터",
+      sub: ["뉴스"],
+      href: "#",
+    },
+    {
+      title: "고객지원",
+      sub: ["Q&A", "인재채용"],
+      href: "#",
+    },
+  ];
+
+  return (
+    <ul className="peer group absolute left-1/2 -translate-x-1/2
+      w-[432px] h-[100px] self-start
+      hover:h-[210px] hover:w-[580px]
+      overflow-y-hidden overflow-x-visible transition-[height, width] duration-500
+      flex">
+      {/* 전체 hover 시 하얀 배경 */}
+
+      {menuItems.map((item, index) => (
+        <li
+          key={index}
+          className="w-[25%] h-[100%]"
+          onMouseEnter={() => setActiveIndex(index)}
+          onMouseLeave={() => setActiveIndex(null)}
+        >
+          <ul>
+            <li className={`
+                  w-[100%] h-[100px] flex justify-center items-center transition-[color] duration-200 border-transparent border-t-4 border-b-4 
+                    ${
+                      activeIndex === index
+                        ? "border-b-sky-400 text-sky-400"
+                        : ""
+                    }
+            `}>
+              <Link href={item.href}>{item.title}</Link>
+            </li>
+            {/* 서브 메뉴 */}
+            <ul className="py-[20px]">
+              {item.sub.map((sub, subIdx) => (
+                <li key={subIdx} className="py-[8px] flex justify-center items-center">
+                  {sub}
+                </li>
+              ))}
+            </ul>
+          </ul>
+        </li>
+      ))}
+    </ul>
+  );
+};
+
+export default DropDownMenu;

@@ -2,26 +2,13 @@ import React from 'react'
 import DropDownMenu from "@/components/dropDownMenu";
 import Logo from "@/components/logo";
 import MoreBtn from "@/components/moreBtn";
+import Nev from '../nev';
 
 const Header = () => {
   return (
     <>
-      <div className="relative">
-        {/****** 상단 네비게이션 *******/}
-        <div className="relative h-[100px] w-full flex items-center px-8
-          border-b border-transparent
-          transition-colors duration-200
-          group-hover:border-gray-200">
-
-          <Logo />
-          <DropDownMenu />
-          <MoreBtn />
-        </div>
-
-      </div>
-
-      {/******* 헤더 ********/}
-      <div className="relative flex flex-col justify-center items-center -top-25 w-full h-[980px] bg-[url('/hanbando.png')] bg-cover bg-center bg-no-repeat overflow-hidden -z-10">
+      {/*******  ********/}
+      <div className="relative flex flex-col justify-center items-center -top-25 w-full h-245 bg-[url('/hanbando.png')] bg-cover bg-center bg-no-repeat overflow-hidden -z-10">
         <div className="absolute inset-0 bg-black/20 mix-blend-overlay -z-30"></div>
             <div className="text-base pb-10 font-normal text-center text-white drop-shadow-[0_0_6px_rgba(0,0,0,1)]">
                 “Hi Engineering - Pioneering 21st-Century Innovation.”
