@@ -31,7 +31,7 @@ const Business = () => {
           <Swiper
             style={{ height: '560px' }}
             slidesPerView={1}
-            spaceBetween={30}
+            spaceBetween={0}
             loop={true}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChangeTransitionStart={() => setSelectedIndex(swiperRef.current?.realIndex ?? 0)}

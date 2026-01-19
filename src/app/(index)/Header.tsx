@@ -1,5 +1,5 @@
 import React from 'react'
-import DropDownMenu from "@/components/dropDownMenu";
+import DropDownMenu from "@/components/nevMenu";
 import Logo from "@/components/logo";
 import MoreBtn from "@/components/moreBtn";
 import Nev from '../nev';

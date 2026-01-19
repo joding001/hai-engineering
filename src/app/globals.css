@@ -29,6 +29,7 @@
 
 body {
   background: var(--background);
+  overflow-x: hidden;
   color: var(--foreground);
   font-family: 'Pretendard', Arial, Helvetica, sans-serif;
 }
