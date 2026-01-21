@@ -13,6 +13,11 @@
   --foreground: #171717;
 }
 
+@theme {
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
