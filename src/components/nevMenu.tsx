@@ -39,7 +39,7 @@ const NevMenu: React.FC<NevMenuProps> = (props) => {
     <ul className="peer group absolute left-1/2 -translate-x-1/2
       w-108 h-25 self-start
       hover:h-52.5 hover:w-120
-      overflow-y-hidden overflow-x-visible transition-[height, width] duration-300
+      overflow-y-hidden overflow-x-visible transition-[height, width] duration-300 ease-in-out
       flex"
       onMouseEnter={() => props.setNevMenuHovered && props.setNevMenuHovered(true)}
       onMouseLeave={() => props.setNevMenuHovered && props.setNevMenuHovered(false)}
@@ -55,7 +55,7 @@ const NevMenu: React.FC<NevMenuProps> = (props) => {
         >
           <ul>
             <li className={`
-                  w-full h-25 transition-[color] duration-200 border-transparent border-t-4 border-b-4 
+                  w-full h-25 transition-[color] duration-300 border-transparent border-t-4 border-b-4 
                     ${
                       activeIndex === index
                         ? "border-b-sky-400 text-sky-400"

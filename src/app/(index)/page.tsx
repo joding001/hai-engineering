@@ -10,6 +10,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 import Header from "./Header";
 import Business from "./Business";
 import Nev from '../nev';
+import News from './News';
 
 
 
@@ -29,7 +30,7 @@ export default function Home() {
       <Business />
 
       {/******* 뉴스 ******/}
-      
+      <News />
     </>
   );
 }

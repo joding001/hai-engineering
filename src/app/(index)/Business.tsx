@@ -1,8 +1,13 @@
+"use client";
+
 import MOWRLogo from '@/components/MOWRLogo'
 import SDLogo from '@/components/SDLogo'
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useLayoutEffect } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import SwiperCore from 'swiper'
+import gsap from 'gsap'
+gsap.registerPlugin(ScrollTrigger);
 
 const Business = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -10,14 +15,49 @@ const Business = () => {
   const sdlText = "효율적 구조 안전성과 시공성을 확보하기 위해 구조 계획과 설계를 체계적으로 수행하며, 다양한 하중과 위험 요소를 고려해 장기적 안정성과 내구성을 갖춘 구조 시스템을 제시하고 현장에서 구현 가능한 실질적 해결책을 도출합니다."
   const mowrText = "효율적 관리와 개발을 위한 세부 계획 수립 및 설계를 체계적으로 수행하며, 수원 확보와 물 이용 방안을 종합적으로 고려해, 장기적 지속 가능성을 목표로 한 수자원 관리 방안을 제시하고 실현할 수 있는 구체적인 해결책을 도출합니다."
 
+  const ref = useRef<HTMLDivElement[]>([]);
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      
+      ref.current.forEach((el) => {
+        if (!el) return;
+        
+        gsap.fromTo(el, 
+          { 
+            y: 50, 
+            opacity: 0 
+          },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: el,
+              start: "top 85%",
+              once: true,
+              onEnter: () => console.log("애니메이션 시작!"),
+            },
+            onComplete: () => {
+              gsap.set(el, { clearProps: "y" }); 
+            }
+          }
+        );
+      });
+
+    });
+
+    return () => ctx.revert(); 
+  }, []);
 
 
   return (
-    <div className="-mt-25 w-full h-245 bg-white -z-10">
+    <div className="w-full h-245 bg-white pt-9.5 -z-10 overflow-hidden">
 
-        <h1 className="text-center mt-5 text-[48px] font-medium">사업분야</h1>
+        <h1 ref={(el) => { if (el) ref.current[0] = el; }} className="text-center text-[48px] font-medium">사업분야</h1>
 
-        <div className="flex justify-center my-10">
+        <div  ref={(el) => { if (el) ref.current[1] = el; }} className="flex justify-center my-10">
           <div className="flex flex-row gap-20">
             <div onClick={() => {
               setSelectedIndex(0);
@@ -36,7 +76,7 @@ const Business = () => {
           </div>
         </div>
 
-        <div>
+        <div ref={(el) => { if (el) ref.current[2] = el; }}>
           <Swiper
             style={{ height: '560px', width: 'full' }}
             slidesPerView={1.2}
@@ -93,7 +133,7 @@ const Business = () => {
             </SwiperSlide>
           </Swiper>
         </div>
-        </div>
+      </div>
   )
 }
 
