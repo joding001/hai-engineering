@@ -38,7 +38,7 @@ const NevMenu: React.FC<NevMenuProps> = (props) => {
   return (
     <ul className="peer group absolute left-1/2 -translate-x-1/2
       w-108 h-25 self-start
-      hover:h-52.5 hover:w-120
+      hover:h-55 hover:w-120
       overflow-y-hidden overflow-x-visible transition-[height, width] duration-300 ease-in-out
       flex"
       onMouseEnter={() => props.setNevMenuHovered && props.setNevMenuHovered(true)}
@@ -64,20 +64,27 @@ const NevMenu: React.FC<NevMenuProps> = (props) => {
             `}>
               <Link href={item.href} className="w-full h-full flex justify-center items-center">{item.title}</Link>
             </li>
-            {/* 서브 메뉴 */}
-            <ul className={`py-5
-              ${
-                activeIndex === index
-                ? "bg-gray-100"
-                : ""
-              }
-            `}>
-              {item.sub.map((sub, subIdx) => (
-                <li className="py-2 flex justify-center items-center" key={subIdx}>
-                  <Link href={item.subHref[subIdx]} className="h-6">{sub}</Link>
-                </li>
-              ))}
-            </ul>
+            <li>
+              {/* 서브 메뉴 */}
+              <ul className={`h-30 flex flex-col justify-center
+                ${
+                  activeIndex === index
+                  ? "bg-gray-100 "
+                  : " "
+                }
+                ${
+                  index < 3
+                  ? "border-r border-r-gray-200"
+                  : ""
+                }
+              `}>
+                {item.sub.map((sub, subIdx) => (
+                  <li className="py-2 flex justify-center items-center" key={subIdx}>
+                    <Link href={item.subHref[subIdx]} className="h-6 block after:content-[''] after:w-0 hover:after:w-full after:transition-[width] after:duration-300 after:relative after:-top-1  after:block after:h-px after:bg-black">{sub}</Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
           </ul>
         </li>
       ))}
