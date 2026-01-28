@@ -9,7 +9,7 @@ const Logo = () => {
           alt="하이엔지니어링"
           width={1920}
           height={1080}
-          className="h-[40px] relative v-20 w-auto"
+          className="h-10 relative v-20 w-auto"
       />
     </Link>
   )
