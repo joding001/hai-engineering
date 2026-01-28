@@ -1,12 +1,34 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+interface MenuItems {
+  title: string;
+  sub: string[];
+  href: string;
+  subHref: string[];
+}
 
 interface NevMenuProps {
   setNevMenuHovered?: (bool:boolean) => void;
+  menuItems: MenuItems[];
 }
 
 const NevMenu: React.FC<NevMenuProps> = (props) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY >= 100);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
 
   const menuItems : { title: string; sub: string[]; href: string; subHref: string[]; }[] = [
     {
@@ -38,13 +60,12 @@ const NevMenu: React.FC<NevMenuProps> = (props) => {
   return (
     <ul className="peer group absolute left-1/2 -translate-x-1/2
       w-108 h-25 self-start
-      hover:h-55 hover:w-120
+      hover:h-55 hover:w-120 hidden lg:flex
       overflow-y-hidden overflow-x-visible transition-[height, width] duration-300 ease-in-out
       flex"
       onMouseEnter={() => props.setNevMenuHovered && props.setNevMenuHovered(true)}
       onMouseLeave={() => props.setNevMenuHovered && props.setNevMenuHovered(false)}
       >
-      {/* 전체 hover 시 하얀 배경 */}
 
       {menuItems.map((item, index) => (
         <li
@@ -55,14 +76,14 @@ const NevMenu: React.FC<NevMenuProps> = (props) => {
         >
           <ul>
             <li className={`
-                  w-full h-25 transition-[color] duration-300 border-transparent border-t-4 border-b-4 
-                    ${
-                      activeIndex === index
-                        ? "border-b-sky-400 text-sky-400"
-                        : ""
-                    }
+              w-full h-25 transition-[color] duration-300 border-transparent border-t-4 border-b-4 
+              ${
+                activeIndex === index
+                ? "border-b-sky-400 text-sky-400"
+                : ""
+              }
             `}>
-              <Link href={item.href} className="w-full h-full flex justify-center items-center">{item.title}</Link>
+              <Link href={item.href} className={`w-full h-full flex justify-center items-center group-hover:text-black ${isScrolled == true ? "text-black" : "text-white" }`}>{item.title}</Link>
             </li>
             <li>
               {/* 서브 메뉴 */}

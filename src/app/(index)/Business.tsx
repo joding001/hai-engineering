@@ -33,14 +33,14 @@ const Business = () => {
             <div onClick={() => {
               setSelectedIndex(0);
               (swiperRef.current?.realIndex === 1 || swiperRef.current?.realIndex === 3) && swiperRef.current?.slideToLoop((swiperRef.current?.realIndex + 3) % 4, 500);
-              }} className="w-22.5  flex flex-col items-center">
+              }} className="w-22.5  flex flex-col items-center cursor-pointer">
               <SDLogo scale={90} color={(selectedIndex === 0 || selectedIndex === 2) ? "#227ff8" : "#A1A1A1"} />
               <p className={`mt-1 text-center text-xl ${selectedIndex === 0 || selectedIndex === 2 ? "text-[#227ff8]" : "text-black"}`}>구조부</p>
             </div>
             <div onClick={() => {
               setSelectedIndex(1);
               (swiperRef.current?.realIndex === 0 || swiperRef.current?.realIndex === 2) && swiperRef.current?.slideToLoop((swiperRef.current?.realIndex + 1) % 4, 500);
-              }} className="w-22.5  flex flex-col items-center">
+              }} className="w-22.5  flex flex-col items-center cursor-pointer">
               <MOWRLogo scale={90} color={(selectedIndex === 1 || selectedIndex === 3) ? "#227ff8" : "#A1A1A1"} />
               <p className={`mt-1 text-center text-xl ${selectedIndex === 1 || selectedIndex === 3 ? "text-[#227ff8]" : "text-black"}`}>수자원부</p>
             </div>
@@ -48,19 +48,18 @@ const Business = () => {
         </motion.div>
 
           <Swiper
-            style={{ height: '560px', width: 'full' }}
-            slidesPerView={1.2}
-            // spaceBetween={}
-            loop={true}
-            onSwiper={(swiper) => (swiperRef.current = swiper)}
-            onSlideChangeTransitionStart={() => {
-              setSelectedIndex(swiperRef.current?.realIndex ?? 0); console.log(swiperRef.current?.realIndex)
-            }}
-          >
+          style={{ height: '560px', width: 'full' }}
+          slidesPerView={1.2}
+          // spaceBetween={}
+          loop={true}
+          onSwiper={(swiper) => (swiperRef.current = swiper)}
+          onSlideChangeTransitionStart={() => {
+            setSelectedIndex(swiperRef.current?.realIndex ?? 0); console.log(swiperRef.current?.realIndex)
+          }}>
             <SwiperSlide className="flex! bg-transparent! justify-end! items-start! w-full h-140 bg-[url('/SDBackground.png')]! bg-no-repeat! bg-size-[auto_132%]! bg-position-[right_112px_top]!">
-              <div className="flex flex-col p-6.25 w-81 h-115 bg-[linear-gradient(130deg,rgba(81,214,255,1)_0%,rgba(34,127,248,1)_100%)]">
+              <div className="flex flex-col p-6.25 w-81 h-115 bg-[linear-gradient(130deg,rgba(81,214,255,1)_0%,rgba(34,127,248,1)_100%)] shadow-[14px_33px_66px_rgba(0,0,0,0.35)]">
                 <div className="w-25 h-25 self-end mb-6">
-                  <MOWRLogo color={"rgba(255,255,255,0.2)"} scale={100} />
+                  <SDLogo color={"rgba(255,255,255,0.2)"} scale={100} />
                 </div>
                 <p className="text-white text-5xl font-medium self-start mb-4">구조부</p>
                 <div className="w-11.25 h-0.75 shrink-0 bg-white/30 mb-2" />
@@ -69,7 +68,7 @@ const Business = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide className="flex! bg-transparent! justify-end! items-start! w-full h-140 bg-[url('/SDBackground.png')]! bg-no-repeat! bg-size-[auto_132%]! bg-position-[right_112px_top]!">
-              <div className="flex flex-col p-6.25 w-81 h-115 bg-[linear-gradient(130deg,rgba(81,214,255,1)_0%,rgba(34,127,248,1)_100%)]">
+              <div className="flex flex-col p-6.25 w-81 h-115 bg-[linear-gradient(130deg,rgba(81,214,255,1)_0%,rgba(34,127,248,1)_100%)] shadow-[14px_33px_66px_rgba(0,0,0,0.35)]">
                 <div className="w-25 h-25 self-end mb-6">
                   <MOWRLogo color={"rgba(255,255,255,0.2)"} scale={100} />
                 </div>
@@ -80,7 +79,7 @@ const Business = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide className="flex! bg-transparent! justify-end! items-start! w-full h-140 bg-[url('/SDBackground.png')]! bg-no-repeat! bg-size-[auto_132%]! bg-position-[right_112px_top]!">
-              <div className="flex flex-col p-6.25 w-81 h-115 bg-[linear-gradient(130deg,rgba(81,214,255,1)_0%,rgba(34,127,248,1)_100%)]">
+              <div className="flex flex-col p-6.25 w-81 h-115 bg-[linear-gradient(130deg,rgba(81,214,255,1)_0%,rgba(34,127,248,1)_100%)] shadow-[14px_33px_66px_rgba(0,0,0,0.35)]">
                 <div className="w-25 h-25 self-end mb-6">
                   <MOWRLogo color={"rgba(255,255,255,0.2)"} scale={100} />
                 </div>
@@ -91,7 +90,7 @@ const Business = () => {
               </div>
             </SwiperSlide>
             <SwiperSlide className="flex! bg-transparent! justify-end! items-start! w-full h-140 bg-[url('/SDBackground.png')]! bg-no-repeat! bg-size-[auto_132%]! bg-position-[right_112px_top]!">
-              <div className="flex flex-col p-6.25 w-81 h-115 bg-[linear-gradient(130deg,rgba(81,214,255,1)_0%,rgba(34,127,248,1)_100%)]">
+              <div className="flex flex-col p-6.25 w-81 h-115 bg-[linear-gradient(130deg,rgba(81,214,255,1)_0%,rgba(34,127,248,1)_100%)] shadow-[14px_33px_66px_rgba(0,0,0,0.35)]">
                 <div className="w-25 h-25 self-end mb-6">
                   <MOWRLogo color={"rgba(255,255,255,0.2)"} scale={100} />
                 </div>
