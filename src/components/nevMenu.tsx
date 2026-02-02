@@ -83,7 +83,7 @@ const NevMenu: React.FC<NevMenuProps> = (props) => {
                 : ""
               }
             `}>
-              <Link href={item.href} className={`w-full h-full flex justify-center items-center group-hover:text-black ${isScrolled == true ? "text-black" : "text-white" }`}>{item.title}</Link>
+              <Link href={item.href} className={`w-full h-full flex justify-center items-center group-hover:text-black ${/*isScrolled == true ? "text-black" : "text-white" */"text-black"}`}>{item.title}</Link>
             </li>
             <li>
               {/* 서브 메뉴 */}
