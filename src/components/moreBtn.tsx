@@ -1,15 +1,15 @@
 import React from 'react'
 
 interface MoreBtnProps {
-  rightNevHovered: boolean;
-  setRightNevHovered: (v: boolean) => void;
+  rightNevOpened: boolean;
+  setRightNevOpened: (v: boolean) => void;
 }
 
-const MoreBtn: React.FC<MoreBtnProps> = ({ rightNevHovered, setRightNevHovered }) => {
+const MoreBtn: React.FC<MoreBtnProps> = ({ rightNevOpened, setRightNevOpened }) => {
   return (
     <div className="relative z-101 ml-auto">
-      {!rightNevHovered ?
-        <button onClick={ () => setRightNevHovered(!rightNevHovered) } className="w-15 h-15 rounded-full flex items-center justify-center bg-white/50">
+      {!rightNevOpened ?
+        <button onClick={ () => setRightNevOpened(!rightNevOpened) } className="w-15 h-15 rounded-full flex items-center justify-center bg-white/50">
             <div className="flex flex-col p-3.5 rounded-full justify-between bg-white items-center w-12 h-12">
               <div className="bg-black w-1 h-1 rounded-full" />
               <div className="bg-black w-1 h-1 rounded-full" />
@@ -18,7 +18,7 @@ const MoreBtn: React.FC<MoreBtnProps> = ({ rightNevHovered, setRightNevHovered }
         </button>
       :
         <button
-          onClick={() => setRightNevHovered(!rightNevHovered)}
+          onClick={() => setRightNevOpened(!rightNevOpened)}
           className="w-15 h-15 rounded-full flex items-center justify-center bg-white/50"
         >
           <div className="flex flex-col p-3.5 rounded-full justify-center bg-white items-center w-12 h-12">

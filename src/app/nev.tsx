@@ -11,7 +11,7 @@ const Nev = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const controls = useAnimation();
   const hasTriggeredRef = useRef(false);
-  const [rightNevHovered, setRightNevHovered] = useState(false);
+  const [rightNevOpened, setrightNevOpened] = useState(false);
 
     const menuItems : { title: string; sub: string[]; href: string; subHref: string[]; }[] = [
     {
@@ -28,7 +28,7 @@ const Nev = () => {
     },
     {
       title: "홍보센터",
-      sub: ["뉴스", ""],
+      sub: ["뉴스"],
       href: "/promotion/01",
       subHref: ["/promotion/01", ""]
     },
@@ -99,13 +99,13 @@ const Nev = () => {
 
         <Logo />
         <NevMenu menuItems={menuItems} setNevMenuHovered={setNevMenuHovered}/>
-        <MoreBtn rightNevHovered={rightNevHovered} setRightNevHovered={setRightNevHovered} />
+        <MoreBtn rightNevOpened={rightNevOpened} setRightNevOpened={setrightNevOpened} />
         <div className={`w-screen h-0 absolute left-1/2 -translate-x-1/2 bg-white top-25 -z-10 transition-[height] duration-300 ease-in-out ${nevMenuHovered ? "h-30" : ""}`} />
       </div>
 
-      <RightNevMenu menuItems={menuItems} rightNevHovered={rightNevHovered} />
+      <RightNevMenu menuItems={menuItems} rightNevOpened={rightNevOpened} />
       <div className={`-z-50 top-0 fixed w-full h-full ${nevMenuHovered ? "bg-black/40" : "hidden"}`} />
-      <div onClick={() => setRightNevHovered(!rightNevHovered)} className={`z-98 top-0 fixed w-full h-full ${rightNevHovered ? "bg-black/40" : "hidden"}`} />
+      <div onClick={() => setrightNevOpened(!rightNevOpened)} className={`z-98 top-0 fixed w-full h-full ${rightNevOpened ? "bg-black/40" : "hidden"}`} />
     </motion.div>
   )
 }

@@ -5,22 +5,22 @@ import { motion } from "motion/react";
 interface MenuItems {
   title: string;
   sub: string[];
-  href: string;      // 무시됨
-  subHref: string[]; // 실제 사용됨
+  href: string;
+  subHref: string[];
 }
 
 interface RightNevMenuProps {
-  rightNevHovered: boolean;
+  rightNevOpened: boolean;
   menuItems: MenuItems[];
 }
 
-const RightNevMenu: React.FC<RightNevMenuProps> = ({ rightNevHovered, menuItems }) => {
+const RightNevMenu: React.FC<RightNevMenuProps> = ({ rightNevOpened, menuItems }) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   return (
     <div
       className={`text-white fixed z-100 top-0 right-0 w-full max-w-240 h-screen bg-[url('/rightNevMenuBackground.jpg')] bg-cover transition-transform duration-300 ${
-        rightNevHovered ? "translate-x-0" : "translate-x-full"
+        rightNevOpened ? "translate-x-0" : "translate-x-full"
       }`}
     >
       <div className="w-full h-full pt-62.5 pl-22.5">
@@ -31,7 +31,7 @@ const RightNevMenu: React.FC<RightNevMenuProps> = ({ rightNevHovered, menuItems 
                 onClick={() =>
                   selectedIndex === index ? setSelectedIndex(null) : setSelectedIndex(index)
                 }
-                className="font-bold text-4xl"
+                className={`font-bold text-4xl ${selectedIndex !== index ? "opacity-50" : ""}`}
               >
                 {item.title}
               </button>
