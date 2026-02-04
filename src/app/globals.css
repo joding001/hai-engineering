@@ -11,6 +11,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --color-primary: #35A9E0;
+  --color-primary-darkish: #1575B7;
 }
 
 body {
@@ -33,6 +35,21 @@ body {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+}
+
+@layer utilities {
+  .text-primary {
+    color: var(--color-primary);
+  }
+  .text-primary-darkish {
+    color: var(--color-primary-darkish);
+  }
+  .bg-primary {
+    background: var(--color-primary);
+  }
+  .bg-primary-darkish {
+    background: var(--color-primary-darkish);
   }
 }
 

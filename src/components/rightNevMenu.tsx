@@ -23,7 +23,7 @@ const RightNevMenu: React.FC<RightNevMenuProps> = ({ rightNevOpened, menuItems }
         rightNevOpened ? "translate-x-0" : "translate-x-full"
       }`}
     >
-      <div className="w-full h-full pt-62.5 pl-22.5">
+      <div className="w-full h-full pt-62.5 pl-22.5 overflow-y-auto">
         <ul>
           {menuItems.map((item, index) => (
             <li key={index} className="mb-12">

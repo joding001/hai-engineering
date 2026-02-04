@@ -11,6 +11,8 @@ import Header from "./Header";
 import Business from "./Business";
 import Nev from '../nev';
 import News from './News';
+import Recruitment from './Recruitment';
+import Footer from './Footer';
 
 
 
@@ -31,6 +33,12 @@ export default function Home() {
 
       {/******* 뉴스 ******/}
       <News />
+
+      {/******* 인재채용 ******/}
+      <Recruitment />
+
+      {/******* 푸터 ******/}
+      <Footer />
     </>
   );
 }

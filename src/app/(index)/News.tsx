@@ -12,31 +12,37 @@ const News = () => {
   [
     {
       title: "하이엔지니어링 수주 땄다 와",
-      date: "2026.02.02"
+      date: "2026.02.02",
+      link: "#"
     },
     {
       title: "뉴스제목",
-      date: "2026.02.03"
+      date: "2026.02.03",
+      link: "#"
     },
     {
       title: "lorem ipsum",
-      date: "2026.02.04"
+      date: "2026.02.04",
+      link: "#"
     },
     {
       title: "text",
-      date: "2026.02.05"
+      date: "2026.02.05",
+      link: "#"
     },
     {
       title: "title",
-      date: "2026.02.06"
+      date: "2026.02.06",
+      link: "#"
     },
     {
       title: "긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글긴글",
-      date: "2026.02.28"
+      date: "2026.02.28",
+      link: "#"
     },
   ]
   return (
-    <div className="w-full h-245 bg-gray-100 pt-9.5 -z-10">
+    <div className="w-full h-auto bg-gray-100 pt-9.5 -z-10">
       <motion.h1
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -48,11 +54,11 @@ const News = () => {
           <div className="flex justify-center flex-wrap gap-4 w-full">
             {
               newsArray.map((item, index) => {
-                return ( <NewsCard key={index} title={item.title} date={item.date} /> )
+                return ( <NewsCard key={index} href={item.link} title={item.title} date={item.date} /> )
               })
             }
           </div>
-          <ShowAllButton href="/promotion/01" className="flex items-center gap-1 self-end"/>
+          <ShowAllButton href="/promotion/01" className="flex items-center gap-1 self-end mb-9"/>
         </div>
       </div>
     </div>
